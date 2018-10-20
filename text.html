@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// var a = 5;
+		// var test  = (function(a){
+		// 	this.a = a;
+		// 	return function(b){
+		// 		return this.a + b;
+		// 	}
+		// }(function(a,b){
+		// 	return a;
+		// }(1,2)))
+		// console.log(test(4))
+		function People(){
+			this.name = 'tim';
+			this.sayHello = function(){
+				console.log('People:' + this.name)
+			}
+		}
+		function Man (name){
+			this.name = name;
+			this.sayHello = function(){
+				console.log('Man:' + this.name)
+			}
+		}
+		Man.prototype = new People();
+		var man = new Man('jim');
+		man.sayHello();
+		People.call(man);
+		man.sayHello();
+	</script>
+</body>
+</html>
